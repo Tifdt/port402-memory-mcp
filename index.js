@@ -34,7 +34,7 @@ async function call(method, path, body) {
 }
 
 const keySchema = z.string().regex(/^[A-Za-z0-9._:-]{1,128}$/).describe("Memory key, e.g. 'notes' or 'project:todo'");
-const server = new McpServer({ name: "port402-memory", version: "1.0.0" });
+const server = new McpServer({ name: "port402-memory", version: "1.1.0" });
 
 server.tool("memory_set", "Save a JSON value under a key in your persistent memory ($0.002). Survives restarts and sessions.",
   { key: keySchema, value: z.any().describe("Any JSON value, max 64 KB") },
@@ -44,5 +44,10 @@ server.tool("memory_get", "Read a value back from your persistent memory ($0.001
   ({ key }) => call("GET", `/v1/memory/${key}`));
 server.tool("memory_list", "List the keys in your persistent memory ($0.001).", {},
   () => call("GET", "/v1/memory"));
+server.tool("memory_delete", "Delete a key from your persistent memory ($0.001).",
+  { key: keySchema },
+  ({ key }) => call("DELETE", `/v1/memory/${key}`));
+server.tool("memory_export", "Export your whole memory as one JSON document, format port402-memory-export/1 ($0.002). Use it for backups.", {},
+  () => call("GET", "/v1/export"));
 
 await server.connect(new StdioServerTransport());

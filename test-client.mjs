@@ -9,7 +9,7 @@ const transport = new StdioClientTransport({ command: process.execPath, args: ["
 const client = new Client({ name: "test", version: "1.0.0" });
 await client.connect(transport);
 console.log("tools:", (await client.listTools()).tools.map((t) => t.name).join(", "));
-for (const [name, args] of [["memory_set", { key: "mcp-test", value: { ok: "from MCP" } }], ["memory_get", { key: "mcp-test" }], ["memory_list", {}]]) {
+for (const [name, args] of [["memory_set", { key: "mcp-test", value: { ok: "from MCP" } }], ["memory_get", { key: "mcp-test" }], ["memory_list", {}], ["memory_export", {}], ["memory_delete", { key: "mcp-test" }]]) {
   const r = await client.callTool({ name, arguments: args });
   console.log(name, r.isError ? "ERROR" : "OK", r.content[0].text);
 }

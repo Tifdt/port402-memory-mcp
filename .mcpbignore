@@ -1,4 +1,6 @@
-test-client.mjs
+test-*.mjs
 server.json
+Dockerfile
+glama.json
 *.mcpb
 .git/

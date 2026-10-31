@@ -8,6 +8,10 @@ No account, no API key: each call is paid in USDC on Base via [x402](https://x40
 | `memory_set` (key, value) | $0.002 |
 | `memory_get` (key) | $0.001 |
 | `memory_list` | $0.001 |
+| `memory_delete` (key) | $0.001 |
+| `memory_export` | $0.002 |
+
+Privacy: values are stored unencrypted on the operator's server; encrypt sensitive values client-side. Key rotation (`POST /v1/migrate`), retention and shutdown notice: see the [service docs](https://port-402-production.up.railway.app/llms.txt).
 
 $1 of USDC ≈ 500 writes or 1,000 reads. Hard cap per call: $0.01 by default (`PORT402_MAX_USD_PER_CALL`).
 

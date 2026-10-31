@@ -1,6 +1,6 @@
 {
   "name": "port402-memory-mcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MCP server: persistent memory for AI agents, paid per call in USDC on Base via x402. No account, no API key.",
   "mcpName": "io.github.Tifdt/port402-memory",
   "type": "module",

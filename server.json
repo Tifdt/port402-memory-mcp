@@ -3,14 +3,14 @@
   "name": "io.github.Tifdt/port402-memory",
   "title": "Port 402 Memory",
   "description": "Persistent memory for AI agents, paid per call in USDC on Base (x402). No account, no API key.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "websiteUrl": "https://port-402-production.up.railway.app",
   "repository": { "url": "https://github.com/Tifdt/port402-memory-mcp", "source": "github" },
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/Tifdt/port402-memory-mcp/releases/download/v1.0.0/port402-memory.mcpb",
-      "fileSha256": "9771f90cc1fc50b1e8fdd3c66794dc04694daa0fc92796a32359629a4dd219cd",
+      "identifier": "https://github.com/Tifdt/port402-memory-mcp/releases/download/v1.1.0/port402-memory.mcpb",
+      "fileSha256": "073faef8a922cd8789ea8e0ea9d162b0957491ad64a8509739983cdceedca18e",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         { "name": "PORT402_PRIVATE_KEY", "description": "Private key of a dedicated Base wallet holding a few USDC. It pays each call and is your private memory namespace.", "isRequired": true, "isSecret": true, "format": "string" },

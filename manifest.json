@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "port402-memory",
   "display_name": "Port 402 Memory",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Persistent memory for AI agents, paid per call in USDC on Base (x402). No account, no API key.",
   "long_description": "Save and read JSON across sessions and restarts. Each call is paid in USDC on Base via x402 ($0.001-$0.002) and the paying wallet is your private namespace. Hard spending cap per call.",
   "author": { "name": "Faloria", "url": "https://port-402-production.up.railway.app" },
@@ -41,7 +41,9 @@
   "tools": [
     { "name": "memory_set", "description": "Save a JSON value under a key ($0.002)." },
     { "name": "memory_get", "description": "Read a value back ($0.001)." },
-    { "name": "memory_list", "description": "List your keys ($0.001)." }
+    { "name": "memory_list", "description": "List your keys ($0.001)." },
+    { "name": "memory_delete", "description": "Delete a key ($0.001)." },
+    { "name": "memory_export", "description": "Export everything as one JSON document ($0.002)." }
   ],
   "compatibility": { "runtimes": { "node": ">=20.0.0" } }
 }
