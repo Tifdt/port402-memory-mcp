@@ -1,0 +1,21 @@
+{
+  "name": "port402-memory-mcp",
+  "version": "1.0.0",
+  "description": "MCP server: persistent memory for AI agents, paid per call in USDC on Base via x402. No account, no API key.",
+  "mcpName": "io.github.Tifdt/port402-memory",
+  "type": "module",
+  "bin": { "port402-memory-mcp": "index.js" },
+  "files": ["index.js", "README.md"],
+  "keywords": ["mcp", "x402", "agent-memory", "memory", "usdc", "base", "ai-agents"],
+  "license": "MIT",
+  "author": "Faloria",
+  "homepage": "https://port-402-production.up.railway.app",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "@x402/evm": "^2.29.0",
+    "@x402/fetch": "^2.29.0",
+    "viem": "^2.38.0",
+    "zod": "^3.25.0"
+  }
+}

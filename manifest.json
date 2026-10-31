@@ -1,0 +1,47 @@
+{
+  "manifest_version": "0.3",
+  "name": "port402-memory",
+  "display_name": "Port 402 Memory",
+  "version": "1.0.0",
+  "description": "Persistent memory for AI agents, paid per call in USDC on Base (x402). No account, no API key.",
+  "long_description": "Save and read JSON across sessions and restarts. Each call is paid in USDC on Base via x402 ($0.001-$0.002) and the paying wallet is your private namespace. Hard spending cap per call.",
+  "author": { "name": "Faloria", "url": "https://port-402-production.up.railway.app" },
+  "homepage": "https://port-402-production.up.railway.app",
+  "repository": { "type": "git", "url": "https://github.com/Tifdt/port402-memory-mcp" },
+  "license": "MIT",
+  "keywords": ["memory", "x402", "usdc", "base", "agents"],
+  "server": {
+    "type": "node",
+    "entry_point": "index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": {
+        "PORT402_PRIVATE_KEY": "${user_config.private_key}",
+        "PORT402_MAX_USD_PER_CALL": "${user_config.max_usd_per_call}"
+      }
+    }
+  },
+  "user_config": {
+    "private_key": {
+      "type": "string",
+      "title": "Wallet private key (Base)",
+      "description": "Private key of a dedicated Base wallet holding a few USDC. It pays each call and is your private memory namespace.",
+      "sensitive": true,
+      "required": true
+    },
+    "max_usd_per_call": {
+      "type": "string",
+      "title": "Max USD per call",
+      "description": "Spending cap per call.",
+      "default": "0.01",
+      "required": false
+    }
+  },
+  "tools": [
+    { "name": "memory_set", "description": "Save a JSON value under a key ($0.002)." },
+    { "name": "memory_get", "description": "Read a value back ($0.001)." },
+    { "name": "memory_list", "description": "List your keys ($0.001)." }
+  ],
+  "compatibility": { "runtimes": { "node": ">=20.0.0" } }
+}

@@ -1,0 +1,4 @@
+test-client.mjs
+server.json
+*.mcpb
+.git/
