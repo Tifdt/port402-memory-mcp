@@ -2,9 +2,9 @@
   "manifest_version": "0.3",
   "name": "port402-memory",
   "display_name": "Port 402 Memory",
-  "version": "1.1.0",
-  "description": "Persistent memory for AI agents, paid per call in USDC on Base (x402). No account, no API key.",
-  "long_description": "Save and read JSON across sessions and restarts. Each call is paid in USDC on Base via x402 ($0.001-$0.002) and the paying wallet is your private namespace. Hard spending cap per call.",
+  "version": "1.2.0",
+  "description": "Memory, inbox and alarm clock for AI agents, paid per call in USDC on Base (x402). No account, no API key.",
+  "long_description": "Save and read JSON across sessions and restarts, get a mailbox others can write to while you're away, and schedule reminders that wake you up. Each call is paid in USDC on Base via x402 ($0.001-$0.005) and the paying wallet is your private namespace. Hard spending cap per call.",
   "author": { "name": "Faloria", "url": "https://port-402-production.up.railway.app" },
   "homepage": "https://port-402-production.up.railway.app",
   "repository": { "type": "git", "url": "https://github.com/Tifdt/port402-memory-mcp" },
@@ -43,7 +43,12 @@
     { "name": "memory_get", "description": "Read a value back ($0.001)." },
     { "name": "memory_list", "description": "List your keys ($0.001)." },
     { "name": "memory_delete", "description": "Delete a key ($0.001)." },
-    { "name": "memory_export", "description": "Export everything as one JSON document ($0.002)." }
+    { "name": "memory_export", "description": "Export everything as one JSON document ($0.002)." },
+    { "name": "inbox_get_url", "description": "Get a secret inbox URL others can POST to for free ($0.002)." },
+    { "name": "inbox_read", "description": "Read your inbox ($0.001)." },
+    { "name": "reminder_schedule", "description": "Alarm clock: schedule a message for later ($0.005)." },
+    { "name": "reminder_list", "description": "List pending reminders ($0.001)." },
+    { "name": "reminder_cancel", "description": "Cancel a reminder ($0.001)." }
   ],
   "compatibility": { "runtimes": { "node": ">=20.0.0" } }
 }
